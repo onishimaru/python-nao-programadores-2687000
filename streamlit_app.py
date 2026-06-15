@@ -7,11 +7,34 @@ import streamlit as st
 FOOTER = "*📌O preço e disponibilidade do produto podem variar, pois as promoções são por tempo limitado.*\n\n#anúncio"
 
 
-def get_api_key():
+def get_secret(key):
     try:
-        return st.secrets["ANTHROPIC_API_KEY"]
+        return st.secrets[key]
     except Exception:
-        return os.environ.get("ANTHROPIC_API_KEY", "")
+        return os.environ.get(key, "")
+
+
+def check_password():
+    app_password = get_secret("APP_PASSWORD")
+    if not app_password:
+        return  # sem senha configurada, libera acesso
+
+    if st.session_state.get("authenticated"):
+        return
+
+    st.title("🔒 Acesso restrito")
+    senha = st.text_input("Senha:", type="password", placeholder="Digite a senha de acesso")
+    if st.button("Entrar", type="primary"):
+        if senha == app_password:
+            st.session_state["authenticated"] = True
+            st.rerun()
+        else:
+            st.error("Senha incorreta.")
+    st.stop()
+
+
+def get_api_key():
+    return get_secret("ANTHROPIC_API_KEY")
 
 
 def generate_phrase(client, description, price_display, shipping_info):
@@ -51,6 +74,7 @@ def format_price_section(price_type, **kwargs):
 # ── Página ──────────────────────────────────────────────────────────────────
 
 st.set_page_config(page_title="Gerador de Anúncios", page_icon="🛒", layout="centered")
+check_password()
 st.title("🛒 Gerador de Anúncios para WhatsApp")
 st.markdown("Preencha os campos abaixo e clique em **Gerar Anúncio**.")
 
