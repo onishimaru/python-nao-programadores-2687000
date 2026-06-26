@@ -1,5 +1,5 @@
 """
-SuplemEx – Criador de Suplementos Naturais para Academia
+Super Natural – Criador de Suplementos Naturais para Academia
 =========================================================
 Aplicativo para academistas que preferem criar seus próprios suplementos
 naturais, sem produtos industrializados.
@@ -16,7 +16,7 @@ from logica_receitas import gerar_receita_completa
 # ─── Configuração da página ───────────────────────────────────────────────────
 
 st.set_page_config(
-    page_title="SuplemEx – Suplementos Naturais",
+    page_title="Super Natural – Suplementos Naturais",
     page_icon="💪",
     layout="wide",
     initial_sidebar_state="collapsed",
@@ -129,7 +129,7 @@ def mostrar_barra_progresso():
 # ─── ETAPA 1: Tela inicial + seleção de objetivo ─────────────────────────────
 
 def etapa_objetivo():
-    st.markdown('<div class="main-title">💪 SuplemEx</div>', unsafe_allow_html=True)
+    st.markdown('<div class="main-title">💪 Super Natural</div>', unsafe_allow_html=True)
     st.markdown(
         '<div class="subtitle">Crie seus próprios suplementos naturais — sem industrializados, '
         'sem mistério, com ciência.</div>',

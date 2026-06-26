@@ -1,4 +1,4 @@
-# SuplemEx – Criador de Suplementos Naturais
+# Super Natural – Criador de Suplementos Naturais
 
 ## Como executar
 
