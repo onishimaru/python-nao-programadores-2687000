@@ -2,3 +2,5 @@
 node_modules
 .tmp
 npm-debug.log
+./__pycache__
+suplemento_app/__pycache__
