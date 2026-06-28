@@ -5,3 +5,4 @@ sounddevice>=0.4.6
 scipy>=1.11.0
 numpy>=1.24.0
 keyboard>=0.13.5
+groq>=0.11.0
